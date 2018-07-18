@@ -14,6 +14,7 @@ public class Application {
 
     @Bean
     public ServletRegistrationBean getActionServlet(ActionServlet actionServlet) {
+        // map /moviefun path but it wont work.
         return new ServletRegistrationBean(actionServlet, "/moviefun/*");
     }
 
