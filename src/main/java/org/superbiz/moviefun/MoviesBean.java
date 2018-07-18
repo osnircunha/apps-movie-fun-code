@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.superbiz.moviefun;
+package org.superbiz.moviefun.movies;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,28 +29,29 @@ import java.util.List;
 @Repository
 public class MoviesBean {
 
-    @PersistenceContext
+    @PersistenceContext(name="movies")
     private EntityManager entityManager;
 
     public Movie find(Long id) {
         return entityManager.find(Movie.class, id);
     }
 
-    @Transactional
+
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
     }
+
 
     public void editMovie(Movie movie) {
         entityManager.merge(movie);
     }
 
-    @Transactional
+
     public void deleteMovie(Movie movie) {
         entityManager.remove(movie);
     }
 
-    @Transactional
+
     public void deleteMovieId(long id) {
         Movie movie = entityManager.find(Movie.class, id);
         deleteMovie(movie);
