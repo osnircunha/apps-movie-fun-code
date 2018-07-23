@@ -12,6 +12,8 @@ import org.superbiz.moviefun.blobstore.BlobStore;
 import org.superbiz.moviefun.blobstore.S3Store;
 import org.superbiz.moviefun.blobstore.ServiceCredentials;
 
+import javax.sql.DataSource;
+
 @SpringBootApplication
 public class Application {
 
